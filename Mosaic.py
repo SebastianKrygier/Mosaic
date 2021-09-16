@@ -2,7 +2,6 @@ import glob
 from PIL import Image
 from scipy import spatial
 import numpy as np
-import sys
 
 class Mosaic:
 
