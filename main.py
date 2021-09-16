@@ -5,7 +5,12 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.slider import Slider
 
 class MyWidget(GridLayout):
-    pass
+    def selected(self, filename):
+        try:
+            self.ids.image.source = filename[0]
+
+        except:
+            pass
 
 class FileChoserWindow(App):
     def build(self):
