@@ -4,27 +4,20 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.slider import Slider
 
+class MyWidget(GridLayout):
+    pass
 
-class LoginScreen(GridLayout):
-
-    def __init__(self, **kwargs):
-        super(LoginScreen, self).__init__(**kwargs)
-        self.cols = 2
-        self.add_widget(Label(text='User Name'))
-        self.username = TextInput(multiline=False)
-        self.add_widget(self.username)
-        self.add_widget(Label(text='password'))
-        self.password = TextInput(password=True, multiline=False)
-        self.add_widget(self.password)
-        s = Slider(min=-100, max=100, value=25)
-        self.add_widget(s)
-
-
-class MyApp(App):
-
+class FileChoserWindow(App):
     def build(self):
-        return LoginScreen()
+
+        return MyWidget()
+
+
+
+
 
 
 if __name__ == '__main__':
-    MyApp().run()
+
+    window = FileChoserWindow()
+    window.run()
