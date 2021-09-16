@@ -60,7 +60,7 @@ class Mosaic:
         for i in range(width):
             for j in range(height):
                 # Offset of tile
-                x, y = self.tile_size[0], j*self.tile_size[1]
+                x, y = i*self.tile_size[0], j*self.tile_size[1]
                 # Index of tile
                 index = closest_tiles[i, j]
                 # Draw tile
@@ -68,3 +68,7 @@ class Mosaic:
 
         # Save output
         output.save(self.output_path)
+
+
+obiekt = Mosaic("main.jpg", "zdj\ ", (50, 50), "mozaika.jpg")
+obiekt.LetsDoIt()
