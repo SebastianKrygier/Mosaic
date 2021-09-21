@@ -8,16 +8,16 @@ import numpy as np
 
 class Mosaic:
 
-    def __init__(self, main_photo_path, tile_photos_path, tile_size, output_path):
+    def __init__(self, main_photo_path, tile_size): #, tile_photos_path, tile_size, output_path):
         self.main_photo_path = main_photo_path  # = "main.jpg"
-        self.tile_photos_path = tile_photos_path  # = "zdj\"
+        #self.tile_photos_path = tile_photos_path  # = "zdj\"
         self.tile_size = tile_size  # = (50, 50)
-        self.output_path = output_path  # = "mozaika.jpg"
+        #self.output_path = output_path  # = "mozaika.jpg"
 
-    # main_photo_path = "main.jpg"
-    # tile_photos_path = "zdj\\*"
-    # tile_size = (50, 50)
-    # output_path = "mozaika.jpg"
+    #main_photo_path = "main.jpg"
+    tile_photos_path = "zdj\\*"
+    #tile_size = (50, 50)
+    output_path = "mozaika.jpg"
 
     def LetsDoIt(self):
 
@@ -77,7 +77,7 @@ class MyWidget(GridLayout):
     def selected(self, filename):
         try:
             self.ids.image.source = filename[0]
-            return Mosaic(filename[0], "zdj\\*", (50, 50), "mozaika.jpg")
+            return Mosaic(filename[0], (10, 10)).LetsDoIt()
         except:
             pass
 
