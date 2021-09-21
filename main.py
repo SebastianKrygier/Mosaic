@@ -73,20 +73,35 @@ class Mosaic:
         output.save(self.output_path)
 
 
+# class MyWidget(GridLayout):
+#     def selected(self, filename):
+#         try:
+#             self.ids.image.source = filename[0]
+#             return Mosaic(filename[0], (10, 10)).LetsDoIt()
+#         except:
+#             pass
+
 class MyWidget(GridLayout):
+    def selected(self, filename,size):
+        try:
+            self.ids.image.source = filename[0]
+            return Mosaic(filename[0], (size,size)).LetsDoIt()
+        except:
+            pass
+
     def selected(self, filename):
         try:
             self.ids.image.source = filename[0]
-            return Mosaic(filename[0], (10, 10)).LetsDoIt()
+            return Mosaic(filename[0], (20,20)).LetsDoIt()
         except:
             pass
 
 
-class FileChoserWindow(App):
+class FileChooserWindow(App):
     def build(self):
         return MyWidget()
 
 
 if __name__ == '__main__':
-    window = FileChoserWindow()
+    window = FileChooserWindow()
     window.run()

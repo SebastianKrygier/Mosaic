@@ -1,0 +1,22 @@
+<MyWidget>:
+    cols:2
+    id:my_widget
+
+    FileChooserListView:
+        id:filechooser
+        on_selection:my_widget.selected(filechooser.selection)
+
+    Image:
+        id:image
+        source:""
+
+    Slider:
+        id: slider
+        min: 0
+        max: 100
+        step: 1
+        orientation: 'horizontal'
+
+    Button:
+        text: 'Start with image size: ' + str(slider.value)
+        on_press:my_widget.selected(filechooser.selection,slider.value)
