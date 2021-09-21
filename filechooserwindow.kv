@@ -4,7 +4,7 @@
 
     FileChooserListView:
         id:filechooser
-        on_selection:my_widget.selected(filechooser.selection)
+        on_selection:my_widget.showImage(filechooser.selection)
 
     Image:
         id:image
@@ -19,4 +19,4 @@
 
     Button:
         text: 'Start with image size: ' + str(slider.value)
-        on_press:my_widget.selected2(filechooser.selection,slider.value)
+        on_press:my_widget.selected(filechooser.selection,int(slider.value))

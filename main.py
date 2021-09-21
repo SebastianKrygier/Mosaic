@@ -8,15 +8,11 @@ import numpy as np
 
 class Mosaic:
 
-    def __init__(self, main_photo_path, tile_size): #, tile_photos_path, tile_size, output_path):
-        self.main_photo_path = main_photo_path  # = "main.jpg"
-        #self.tile_photos_path = tile_photos_path  # = "zdj\"
-        self.tile_size = tile_size  # = (50, 50)
-        #self.output_path = output_path  # = "mozaika.jpg"
+    def __init__(self, main_photo_path, tile_size):
+        self.main_photo_path = main_photo_path
+        self.tile_size = tile_size
 
-    #main_photo_path = "main.jpg"
     tile_photos_path = "zdj\\*"
-    #tile_size = (50, 50)
     output_path = "mozaika.jpg"
 
     def LetsDoIt(self):
@@ -63,7 +59,7 @@ class Mosaic:
         for i in range(width):
             for j in range(height):
                 # Offset of tile
-                x, y = i*self.tile_size[0], j * self.tile_size[1]
+                x, y = i * self.tile_size[0], j * self.tile_size[1]
                 # Index of tile
                 index = closest_tiles[i, j]
                 # Draw tile
@@ -72,33 +68,22 @@ class Mosaic:
         # Save output
         output.save(self.output_path)
 
-
-# class MyWidget(GridLayout):
-#     def selected(self, filename):
-#         try:
-#             self.ids.image.source = filename[0]
-#             return Mosaic(filename[0], (10, 10)).LetsDoIt()
-#         except:
-#             pass
-
 class MyWidget(GridLayout):
-    def selected(self, filename):
+    def selected(self, filename, size):
         try:
             self.ids.image.source = filename[0]
-            return Mosaic(filename[0], (20,20)).LetsDoIt()
-        except:
-            print("Error in selected function")
-            pass
-
-    def selected2(self, filename,size):
-        try:
-            self.ids.image.source = filename[0]
-            return Mosaic(filename[0], (size,size)).LetsDoIt()
+            print(size)
+            return Mosaic(filename[0], (size, size)).LetsDoIt()
         except:
             print("Error in selected2 function")
             pass
 
-
+    def showImage(self, filename):
+        try:
+            self.ids.image.source = filename[0]
+        except:
+            print("Error in selected2 function")
+            pass
 
 
 class FileChooserWindow(App):
