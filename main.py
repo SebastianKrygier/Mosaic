@@ -82,19 +82,23 @@ class Mosaic:
 #             pass
 
 class MyWidget(GridLayout):
-    def selected(self, filename,size):
-        try:
-            self.ids.image.source = filename[0]
-            return Mosaic(filename[0], (size,size)).LetsDoIt()
-        except:
-            pass
-
     def selected(self, filename):
         try:
             self.ids.image.source = filename[0]
             return Mosaic(filename[0], (20,20)).LetsDoIt()
         except:
+            print("Error in selected function")
             pass
+
+    def selected2(self, filename,size):
+        try:
+            self.ids.image.source = filename[0]
+            return Mosaic(filename[0], (size,size)).LetsDoIt()
+        except:
+            print("Error in selected2 function")
+            pass
+
+
 
 
 class FileChooserWindow(App):
